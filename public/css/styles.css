@@ -6,16 +6,103 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto Slab", serif;
   color: #333;
   background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+header, footer {
+  background-color: #004080;
+  color: white;
+  padding: 1rem;
+  text-align: center;
 }
 
 h1, h2, h3 {
-  color:#004080
+  font-family: "Roboto Slab", serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 2rem;
+  color:#004080;
+}
+
+h1 {
+  margin-bottom: 1rem;
 }
 
 a {
   color: #0066cc;
   text-decoration: none;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+nav a {
+  color: #2980b9;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  margin-right: 1rem;
+  text-transform: uppercase;
+}
+
+nav a:hover {
+  color: #1f6391;
+  text-decoration: underline;
+}
+
+p{
+  font-family: 'roboto', sans-serif;
+  font-weight: 400;
+  color: #333333;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+main {
+  padding: 2rem;
+  max-width:900px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.hero {
+  padding: 2rem;
+  background-color: #e0f0ff;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.feature-cards {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  flex: 1;
+  min-width: 250px;
+}
+
+@media (max-width: 600px) {
+  nav {
+    text-align: center;
+  }
+  nav a {
+    display: block;
+    margin: 0.5rem 0;
+  }
 }
