@@ -2,17 +2,19 @@
 <html lang="en">
   <head>
     <%- include('../partials/head') %>
-    <title><%= title %> | CSE Motors</title>
   </head>
+
   <body>
     <%- include('../partials/header') %>
     <%- include('../partials/navigation') %>
 
     <main>
-      <!-- Page content will be inserted here -->
       <%- body %>
     </main>
 
     <%- include('../partials/footer') %>
+
+    <!-- Scripts should load at the end of the body -->
+    <script src="/js/navigation.js"></script>
   </body>
 </html>

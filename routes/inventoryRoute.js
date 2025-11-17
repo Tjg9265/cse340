@@ -5,7 +5,7 @@ const utilities = require("../utilities")
 
 // Classification view
 router.get(
-  "/type/:classificationId",
+  "/type/:classification_id",
   utilities.handleErrors(invController.buildByClassificationId)
 )
 

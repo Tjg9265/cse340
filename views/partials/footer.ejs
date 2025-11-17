@@ -1,14 +1,24 @@
-<% const d = new Date(); let year = d.getFullYear(); %>
+<% 
+  const d = new Date(); 
+  let year = d.getFullYear(); 
+%>
+
 <footer>
-  <img src="/images/site/icon.png" alt="CSE Motors Logo" class="footer-logo">
-  <p class="copyright">&copy; <%= year %>, CSE 340 App</p>
-  <p>
-    <a href="/trigger-error" title="trigger a 500 server error for testing">
-      Test 500 Error
-    </a>
-  </p>
-  <ul class="footer-links">
-    <li><a href="/about">About</a></li>
-    <li><a href="/Contact">Contact</a></li>
-  </ul>
+  <div class="footer-inner">
+    <img src="/images/site/icon.png" alt="CSE Motors Logo" class="footer-logo">
+
+    <p class="copyright">
+      &copy; <%= year %> CSE Motors | All Rights Reserved
+    </p>
+
+    <!-- Footer navigation for accessibility -->
+    <nav aria-label="Footer Navigation">
+      <ul class="footer-links">
+        <li><a href="/about" title="Learn more about CSE Motors">About</a></li>
+        <li><a href="/contact" title="Contact CSE Motors">Contact</a></li>
+        <li><a href="/trigger-error" title="Trigger a 500 error for testing">Test 500 Error</a></li>
+      </ul>
+    </nav>
+  </div>
 </footer>
+
