@@ -1,11 +1,12 @@
 /***********************************
  *  Required Modules
  ***********************************/
-const express = require("express")
-const path = require("path")
-const bodyParser = require("body-parser")
-const session = require("express-session")
-const flash = require("connect-flash")
+const express = require("express");
+const path = require("path");
+const bodyParser = require("body-parser");
+const session = require("express-session");
+const flash = require("connect-flash");
+const expressLayouts = require("express-ejs-layouts");
 require("dotenv").config()
 
 /* Database pool */
@@ -62,6 +63,10 @@ app.use(function (req, res, next) {
  ***********************************/
 app.set("view engine", "ejs")
 app.set("views", path.join(__dirname, "views"))
+
+app.use(expressLayouts);
+app.set("layout", "./layouts/layout");
+
 
 /***********************************
  *  Routes
