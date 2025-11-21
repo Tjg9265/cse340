@@ -1,7 +1,10 @@
-const hamburger = document.getElementById("#hamburger");
+// public/js/navigation.js
+
+const hamburger = document.querySelector("#hamburger");
 const navMenu = document.querySelector("#nav-menu");
-if (ham) {
-    hamburger.addEventListener("click", () => {
-        navList.classList.toggle("show");
-    });
+
+if (hamburger && navMenu) {
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("open");
+  });
 }

@@ -13,6 +13,18 @@ body {
   color: #333;
 }
 
+body {
+  background-image: url("/images/site/checkerboard.jpg");
+  background-repeat: repeat;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    background-image: none;
+  }
+}
+
+
 /* Header */
 #top-header {
   display: flex;
@@ -94,12 +106,17 @@ main {
   align-items: center;
   gap: 1rem;
   text-align: center;
+   justify-content: space-between;
 }
 
 .hero-text h2 {
   font-size: 1.5rem;
   color: #004080;
   margin-bottom: 0.5rem;
+}
+
+.hero-text {
+  flex: 1 1 300px;
 }
 
 .hero-text ul {
@@ -118,7 +135,8 @@ main {
 
 .hero-img img {
   width: 100%;
-  max-width: 650px;
+  max-width: 400px;
+  border-radius: 8px;
 }
 
 /* Desktop - Hero Side-by-side */
@@ -142,12 +160,14 @@ main {
 /* Upgrades */
 .upgrades-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1rem;
+  text-align: center;
 }
 
 .upgrade-item img {
   width: 100%;
+  max-width: 120px;
   border: 2px solid #ccc;
 }
 

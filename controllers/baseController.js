@@ -18,7 +18,7 @@ baseController.buildHome = async function (req, res, next) {
  * Trigger Intertional 500 Error
  **********************************/
 baseController.triggerError = async function (req, res, next) {
-    thrownewError("International 500 error for testing.")
+    throw new Error("International 500 error for testing.")
 }
 
 module.exports = baseController
