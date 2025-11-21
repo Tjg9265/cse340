@@ -8,3 +8,4 @@ if (hamburger && navMenu) {
     navMenu.classList.toggle("open");
   });
 }
+

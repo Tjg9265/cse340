@@ -107,3 +107,5 @@ Util.buildVehicleDetail = async function (vehicle) {
  * Export the Util object
  ******************************************/
 module.exports = Util
+
+
