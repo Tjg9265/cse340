@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
     <%- include('../partials/head') %>
-  </head>
 
-  <body>
-    <%- include('../partials/header') %>
-    <%- include('../partials/navigation') %>
+    <body>
+        <div id="wrapper">
+            <%- include('../partials/header') %>
+            <%- include('../partials/navigation') %>
 
-    <main>
-      <%- body %>
-    </main>
+            <main>
+                <%- body %>
+            </main>
 
-    <%- include('../partials/footer') %>
-
-    <!-- Scripts should load at the end of the body -->
-    <script src="/js/navigation.js"></script>
-  </body>
+            <%- include('../partials/footer') %>
+        </div>
+    </body>
 </html>
-
 

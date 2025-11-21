@@ -42,7 +42,8 @@ app.use(
       createTableIfMissing: true,
       pool,
     }),
-    secret: process.env.SESSION_SECRET,
+    secret: "superSecretPassword123!@#",
+
     resave: true,
     saveUninitialized: true,
     name: "sessionId",

@@ -1,18 +1,16 @@
-<main>
-    <!--content heading-->
-    <% if (title) { %>
-        <h1>
-            <%= title %>
-        </h1>
+<% if (title) { %>
+    <h1><%= title %></h1>
+<% } else {
+    res.redirect('/')
+} %>
 
-   <% } else { %>
-        <h1>Vehicle Detail</h1>
-    <% } %>
+<%# // See https://attacomsian.com/blog/check-if-javascript-object-is-empty %>
 
-    <!--Vehicle detail content-->
+<% if(Object.entries(detail).length > 0){ %>
     <%- detail %>
-</main>
-
+<% } else { %>
+    <p class="notice">Sorry, no matching vehicle could be found.</p>
+<% } %>
 
 
 
