@@ -1,0 +1,25 @@
+
+
+<main>
+  <h1><%= title %></h1>
+
+  <!-- Flash Messages -->
+  <%- messages() %>
+
+  <% if (errors && errors.array) { %>
+    <ul class="notice">
+      <% errors.array().forEach(error => { %>
+        <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <section class="management-options">
+    <h2>Inventory Tools</h2>
+    <ul>
+      <li><a href="/inv/add-classification">Add New Classification</a></li>
+      <li><a href="/inv/add-inventory">Add New Inventory Item</a></li>
+    </ul>
+  </section>
+</main>
+

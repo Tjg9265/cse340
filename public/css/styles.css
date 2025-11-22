@@ -276,11 +276,7 @@ section {
 }
 /* END inventory detail styles */
 
-/* BEGIN form styles */
-label+div {
-  font-size: .7rem;
-  margin-left: .5rem;
-}
+
 
 input[name$='Image'],
 input[name$='Thumbnail'] {
@@ -478,3 +474,52 @@ input[name$='Thumbnail'] {
   }
   /* END inventory detail styles */
 }
+
+form {
+  max-width: 600px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.form-control {
+  margin-bottom: 1.5rem;
+}
+
+.form-control label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.form-control input,
+.form-control select,
+.form-control textarea {
+  width: 100%;
+  padding: .5rem;
+  display: block;
+}
+
+
+input, textarea, select {
+  width: 100%;
+  max-width: 100%;
+  padding: .5rem;
+  margin-bottom: 1rem;
+}
+
+.notice {
+  background: #fee;
+  border-left: 4px solid #900;
+  padding: .5rem 1rem;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+}
+select, input, textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+

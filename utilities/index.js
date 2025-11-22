@@ -64,48 +64,48 @@ Util.buildClassificationGrid = async function (data) {
   return grid
 }
 
-/*****************************************
- * Build Vehicle Detail Page
- ******************************************/
-Util.buildVehicleDetail = async function (vehicle) {
-  let detail = ""
+/* ****************************************
+ * Build Classification Select List
+ **************************************** */
+Util.buildClassificationList = async function (classification_id = null) {
+  let data = await invModel.getClassifications()
+  let classificationList =
+    '<select name="classification_id" id="classification_id" required>'
+  classificationList += "<option value=''>Choose a Classification</option>"
+  
+  data.forEach((row) => {
+    classificationList += `<option value="${row.classification_id}"`
 
-  detail += `<section class="vehicle-detail">`
+    if (
+      classification_id != null &&
+      row.classification_id == classification_id
+    ) {
+      classificationList += " selected "
+    }
 
-  detail += `
-    <div class="vehicle-image">
-      <img src="${vehicle.inv_image}" 
-           alt="Image of ${vehicle.inv_year} ${vehicle.inv_make} ${vehicle.inv_model} on CSE Motors" />
-    </div>
-  `
+    classificationList += `>${row.classification_name}</option>`
+  })
 
-  detail += `
-    <div class="vehicle-info">
+  classificationList += "</select>"
+  return classificationList
+}
+
+Util.buildVehicleDetail = function (vehicle) {
+  let detail = `
+    <section class="vehicle-detail">
+      <img src="${vehicle.inv_image}" alt="Image of ${vehicle.inv_make} ${vehicle.inv_model}">
       <h2>${vehicle.inv_year} ${vehicle.inv_make} ${vehicle.inv_model}</h2>
-
-      <p class="price"><strong>Price:</strong> 
-        $${new Intl.NumberFormat("en-US").format(vehicle.inv_price)}
-      </p>
-
-      <p><strong>Mileage:</strong> 
-        ${new Intl.NumberFormat("en-US").format(vehicle.inv_miles)} miles
-      </p>
-
+      <p class="price">$${new Intl.NumberFormat("en-US").format(vehicle.inv_price)}</p>
+      <p><strong>Miles:</strong> ${new Intl.NumberFormat("en-US").format(vehicle.inv_miles)}</p>
       <p><strong>Color:</strong> ${vehicle.inv_color}</p>
-
-      <p class="description">
-        <strong>Description:</strong> ${vehicle.inv_description}
-      </p>
-    </div>
+      <p class="description">${vehicle.inv_description}</p>
+    </section>
   `
-
-  detail += "</section>"
   return detail
 }
+
 
 /*****************************************
  * Export the Util object
  ******************************************/
 module.exports = Util
-
-
