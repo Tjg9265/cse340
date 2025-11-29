@@ -523,3 +523,73 @@ select, input, textarea {
   margin-bottom: 1rem;
 }
 
+/***********************************
+ * Account Dashboard Styles
+ ***********************************/
+
+.account-info {
+  background: #f5f7fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #d9e2ec;
+}
+
+.account-info h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #102a43;
+}
+
+.account-actions ul,
+.admin-tools ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.account-actions li,
+.admin-tools li {
+  margin-bottom: 0.6rem;
+}
+
+.account-actions a,
+.admin-tools a {
+  color: #1166cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.account-actions a:hover,
+.admin-tools a:hover {
+  text-decoration: underline;
+}
+
+/* Admin/Employee Tools Box */
+.admin-tools {
+  background: #e8f0fe;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #bcd0f7;
+  margin-top: 1.5rem;
+}
+
+.admin-tools h2 {
+  margin-top: 0;
+  color: #0b3d91;
+}
+
+/* Flash messages styling */
+.notice {
+  background: #ffe5e5;
+  border: 1px solid #ffb3b3;
+  padding: 1rem;
+  border-radius: 6px;
+  color: #7a1a1a;
+  margin-bottom: 1rem;
+}
+
+.notice li {
+  margin-bottom: 0.4rem;
+}
+
+

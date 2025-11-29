@@ -5,6 +5,7 @@ const router = new express.Router()
 const utilities = require("../utilities")
 const accountController = require("../controllers/accountController")
 const regValidate = require("../utilities/account-validation")
+const { checkJWTToken } = require("../utilities/accountAuthorization")
 
 // Login view
 router.get(
@@ -21,10 +22,30 @@ router.get(
 // Process registration
 router.post(
   "/register",
-  regValidate.registrationRules(),  // ✅ fixed name
+  regValidate.registrationRules(),   // ✔ CORRECT
   regValidate.checkRegData,
   utilities.handleErrors(accountController.registerAccount)
 )
 
-module.exports = router
+// Process login
+router.post(
+  "/login",
+  regValidate.loginRules(),          // ✔ ADDED
+  regValidate.checkLoginData,        // ✔ ADDED
+  utilities.handleErrors(accountController.accountLogin)
+)
 
+// Logout
+router.get(
+  "/logout",
+  utilities.handleErrors(accountController.accountLogout)
+)
+
+// Protected dashboard
+router.get(
+  "/",
+  checkJWTToken,
+  utilities.handleErrors(accountController.buildAccountPage)
+)
+
+module.exports = router

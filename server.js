@@ -8,6 +8,7 @@ const session = require("express-session");
 const flash = require("connect-flash");
 const expressLayouts = require("express-ejs-layouts");
 require("dotenv").config()
+const cookieParser = require("cookie-parser")
 
 /* Database pool */
 const pool = require("./database/")
@@ -21,6 +22,8 @@ const accountRoute = require("./routes/accountRoute")
  *  Create the app
  ***********************************/
 const app = express()
+app.use(cookieParser())
+
 
 /***********************************
  *  Static Files

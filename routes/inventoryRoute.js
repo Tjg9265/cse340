@@ -1,3 +1,5 @@
+// routes/inventoryRoute.js
+
 const express = require("express")
 const router = new express.Router()
 
@@ -12,13 +14,13 @@ const invValidate = require("../utilities/inventory-validation")
    Classification Views
 ============================ */
 
-// Classification view
+// Classification listing page
 router.get(
   "/type/:classification_id",
   utilities.handleErrors(invController.buildByClassificationId)
 )
 
-// Vehicle detail
+// Vehicle detail page
 router.get(
   "/detail/:invId",
   utilities.handleErrors(invController.buildByInventoryId)
@@ -37,17 +39,17 @@ router.get(
    Add Classification
 ============================ */
 
-// Show form
+// View
 router.get(
   "/add-classification",
   utilities.handleErrors(invController.buildAddClassification)
 )
 
-// Process form
+// Process
 router.post(
   "/add-classification",
-  classValidate.classRules(),       // ✔ MATCHES FILE
-  classValidate.checkClassData,     // ✔ MATCHES FILE
+  classValidate.classRules(),
+  classValidate.checkClassData,
   utilities.handleErrors(invController.addClassification)
 )
 
@@ -55,18 +57,52 @@ router.post(
    Add Inventory
 ============================ */
 
-// Show form
+// View
 router.get(
   "/add-inventory",
   utilities.handleErrors(invController.buildAddInventory)
 )
 
-// Process form
+// Process
 router.post(
   "/add-inventory",
-  invValidate.invRules(),          // ✔ MATCHES FILE
-  invValidate.checkInvData,        // ✔ MATCHES FILE
+  invValidate.invRules(),
+  invValidate.checkInvData,
   utilities.handleErrors(invController.addInventory)
+)
+
+/* ============================
+   Edit Inventory
+============================ */
+
+// Edit view
+router.get(
+  "/edit/:inv_id",
+  utilities.handleErrors(invController.editInventoryView)
+)
+
+// Process update
+router.post(
+  "/edit",
+  invValidate.invRules(),
+  invValidate.checkInvData,
+  utilities.handleErrors(invController.updateInventory)
+)
+
+/* ============================
+   Delete Inventory
+============================ */
+
+// Delete confirmation view
+router.get(
+  "/delete/:inv_id",
+  utilities.handleErrors(invController.buildDeleteInventoryView)
+)
+
+// Process delete
+router.post(
+  "/delete",
+  utilities.handleErrors(invController.deleteInventoryItem)
 )
 
 module.exports = router
