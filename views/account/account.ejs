@@ -1,32 +1,27 @@
-<%- include('../partials/head', { title }) %>
-<%- include('../partials/navigation') %>
+<%- include('../partials/header') %>
 
-<h1><%= title %></h1>
+<h1>Account Management</h1>
 
 <%- messages() %>
 
 <section class="account-info">
-  <h2>
-    Welcome, <%= account?.account_firstname || "User" %>!
-  </h2>
+  <h2>Welcome, <%= account.account_firstname %>!</h2>
 
-  <p>
-    You are logged in as:
-    <strong><%= account?.account_type || "Unknown" %></strong>
-  </p>
+  <p>You are logged in as: <strong><%= account.account_type %></strong></p>
 
-  <p>
-    Your Account ID:
-    <strong><%= account?.account_id || "N/A" %></strong>
-  </p>
+  <p>Your Account ID: <strong><%= account.account_id %></strong></p>
 </section>
 
 <hr>
 
 <section class="account-actions">
-  <h3>What would you like to do?</h3>
-
+  <h3>Your Account</h3>
   <ul>
+    <li>
+      <a href="/account/update/<%= account.account_id %>">
+        Update Account Information
+      </a>
+    </li>
     <li><a href="/account/logout">Log Out</a></li>
     <li><a href="/">Return to Home</a></li>
   </ul>
@@ -34,9 +29,9 @@
 
 <hr>
 
-<% if (account && (account.account_type === "Employee" || account.account_type === "Admin")) { %>
+<% if (account.account_type === "Employee" || account.account_type === "Admin") { %>
 <section class="admin-tools">
-  <h2>Employee / Admin Tools</h2>
+  <h3>Inventory Management</h3>
   <p>You have elevated permissions. Use the links below to manage inventory.</p>
 
   <ul>

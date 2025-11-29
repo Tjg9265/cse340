@@ -9,6 +9,8 @@ const flash = require("connect-flash");
 const expressLayouts = require("express-ejs-layouts");
 require("dotenv").config()
 const cookieParser = require("cookie-parser")
+const jwt = require("jsonwebtoken")
+
 
 /* Database pool */
 const pool = require("./database/")
@@ -23,6 +25,31 @@ const accountRoute = require("./routes/accountRoute")
  ***********************************/
 const app = express()
 app.use(cookieParser())
+
+// Make login state & account data available to all views
+app.use((req, res, next) => {
+  const token = req.cookies.jwt
+
+  if (!token) {
+    res.locals.loggedIn = false
+    res.locals.accountData = null
+    return next()
+  }
+
+  try {
+    const payload = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
+    res.locals.loggedIn = true
+    res.locals.accountData = payload
+  } catch (err) {
+    console.error("Global JWT middleware error:", err)
+    res.clearCookie("jwt")
+    res.locals.loggedIn = false
+    res.locals.accountData = null
+  }
+
+  next()
+})
+
 
 
 /***********************************
