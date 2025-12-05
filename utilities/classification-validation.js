@@ -40,3 +40,4 @@ classValidate.checkClassData = async (req, res, next) => {
 
 module.exports = classValidate
 
+

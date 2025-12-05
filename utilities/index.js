@@ -104,7 +104,6 @@ Util.buildVehicleDetail = function (vehicle) {
   return detail
 }
 
-
 /*****************************************
  * Export the Util object
  ******************************************/

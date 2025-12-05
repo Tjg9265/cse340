@@ -64,3 +64,4 @@ module.exports = {
   checkJWTToken,
   checkEmployeeOrAdmin
 }
+
