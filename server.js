@@ -19,6 +19,9 @@ const pool = require("./database/")
 const staticRoutes = require("./routes/static")
 const inventoryRoute = require("./routes/inventoryRoute")
 const accountRoute = require("./routes/accountRoute")
+const travelRoute = require("./routes/travelRoute")
+app.use("/travel", travelRoute)
+
 
 /***********************************
  *  Create the app

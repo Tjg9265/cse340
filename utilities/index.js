@@ -17,6 +17,9 @@ Util.getNav = async function () {
   let data = await invModel.getClassifications()
   let list = "<ul>"
   list += '<li><a href="/" title="Home page">Home</a></li>'
+  
+  // ⭐ Add Adventure Log link here
+  list += '<li><a href="/travel" title="Adventure Log">Adventure Log</a></li>'
 
   data.forEach((row) => {
     list += "<li>"
@@ -30,6 +33,7 @@ Util.getNav = async function () {
   list += "</ul>"
   return list
 }
+
 
 /*****************************************
  * Build classification grid
