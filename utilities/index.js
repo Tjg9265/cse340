@@ -109,6 +109,18 @@ Util.buildVehicleDetail = function (vehicle) {
 }
 
 /*****************************************
+ * Login Check Middleware  ⭐ REQUIRED
+ *****************************************/
+Util.checkLogin = function (req, res, next) {
+  if (res.locals.loggedin) {
+    return next()
+  }
+  req.flash("notice", "Please log in to access this page.")
+  return res.redirect("/account/login")
+}
+
+/*****************************************
  * Export the Util object
  ******************************************/
 module.exports = Util
+
