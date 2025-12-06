@@ -1,7 +1,7 @@
 const express = require("express")
 const router = new express.Router()
 const travelController = require("../controllers/travelController")
-const utilities = require("../utilities/")
+const utilities = require("../utilities")
 
 // Travel journal home page
 router.get(
