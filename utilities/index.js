@@ -34,7 +34,6 @@ Util.getNav = async function () {
   return list
 }
 
-
 /*****************************************
  * Build classification grid
  ******************************************/
@@ -123,4 +122,5 @@ Util.checkLogin = function (req, res, next) {
  * Export the Util object
  ******************************************/
 module.exports = Util
+
 
